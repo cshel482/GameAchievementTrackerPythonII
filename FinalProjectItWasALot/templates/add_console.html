@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+    {% block content %}
+        <h3>Add a console</h3>
+        <form action="{{ url_for('add_console') }}" method="post" >
+            <label for="console_name">console name:</label><br>
+            <select id="console_name" name="console_name">
+                <option value="PC">PC</option>
+                <option value="Xbox">Xbox</option>
+                <option value="PlayStation">PlayStation</option>
+                <option value="Switch">Switch</option>
+            </select><br>
+            <input type="submit" value="submit">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        </form>
+            {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% endblock %}
+    {% endif %}
+</body>
+</html>

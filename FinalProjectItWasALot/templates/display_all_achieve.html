@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+        <h2>Enter Search Criteria For Achievements</h2>
+        <form action="/display_all_achieve" method="post">
+            <label for="platform">Gaming Platform:</label><br>
+            <select id="platform" name="platform">
+                <option value="PC">PC</option>
+                <option value="Xbox">Xbox</option>
+                <option value="PlayStation">PlayStation</option>
+                <option value="Switch">Switch</option>
+            </select><br>
+            <label for="game">Game:</label><br>
+            <input type="text" id="game" name="game"><br><br>
+            <label for="developer">Developer:</label><br>
+            <input type="text" id="developer" name="developer"><br><br>
+            <label for="difficulty">Difficulty:</label><br>
+            <input type="text" id="difficulty" name="difficulty"><br><br>
+            <input type="submit" value="Submit">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        </form>
+            {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% endif %}
+</body>
+</html>

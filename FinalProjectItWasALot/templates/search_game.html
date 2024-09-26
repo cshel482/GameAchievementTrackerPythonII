@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+    <h2>Enter Search Criteria For Game You Wish To Find</h2>
+        <form action="{{ url_for('search_game') }}" method="post" >
+            <label for="name">game name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="publisher">Publisher:</label><br>
+            <input type="text" id="publisher" name="publisher"><br>
+            <label for="platform">platform:</label><br>
+            <select id="platform" name="platform">
+                <option value="">Select Platform</option>
+                <option value="PC">PC</option>
+                <option value="Xbox">Xbox</option>
+                <option value="PlayStation">PlayStation</option>
+                <option value="Switch">Switch</option>
+            </select><br>
+            <label for="exclusive">exclusive Y or N:</label><br>
+            <input type="text" id="exclusive" name="exclusive"><br>
+            <input type="submit" value="submit">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        </form>
+            {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% endif %}
+</body>
+</html>

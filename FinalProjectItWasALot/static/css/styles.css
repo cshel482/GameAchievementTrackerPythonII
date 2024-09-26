@@ -1,0 +1,67 @@
+
+
+@font-face {
+    font-family: 'pricedown';
+    src: url("../pricedown bl.otf") format('opentype');
+}
+body{
+    font-family: Arial, cursive;
+    background-color: #1b1b1b;
+    color: #fcfbfb;
+    font-size: 12px;
+}
+
+form{
+    background: #292929;
+    border: 2px solid #808080;
+    color: #808080;
+    max-width: fit-content;
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 300px;
+}
+
+input{
+    background: #292929;
+    color: #808080;
+    border: 1px solid #808080;
+}
+
+#login-h2{
+    background: #1b1b1b;
+    border-radius: 10px;
+    border: 2px solid #808080;
+    font-size: 20px;
+    padding: 10px;
+    max-width: fit-content;
+
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px;
+    background-color: #292929;
+}
+
+li {
+  display: inline;
+
+}
+
+li a{
+    font-size: 12px;
+    padding: 15px;
+    color: #808080;
+    text-decoration: none;
+}
+
+li a:hover {
+    border-bottom: 3px solid #fcfbfa;
+}
+
+a {
+    color: #fcfbfa;
+    font-size: 16px;
+}

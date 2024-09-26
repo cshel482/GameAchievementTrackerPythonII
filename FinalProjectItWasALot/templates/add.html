@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+        <h2>Add Items</h2>
+
+        {% block block1_content %}
+            {% include "add_game.html" %}
+        {% endblock %}
+
+        {% block block2_content %}
+            {% include "add_achievement.html" %}
+        {% endblock %}
+
+        {% block block3_content %}
+            {% include "add_console.html" %}
+        {% endblock %}
+
+    {% endif %}
+</body>
+</html>

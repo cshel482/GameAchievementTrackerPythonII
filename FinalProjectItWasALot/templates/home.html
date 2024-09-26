@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+            <h1>Welcome, {{ current_user.username }}</h1>
+
+
+        <header>
+    <nav>
+        <ul >
+            <li ><a href="{{ url_for('add') }}" >Add New Item</a></li>
+            <li ><a href="{{ url_for('display_all_achieve') }}" >Show Achievements</a></li>
+            <li ><a href="{{ url_for('search_game') }}">See All Games</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+    <footer >
+        <p>&copy; Digga Konzern.</p>
+        <div class="social-media">
+            <a href="#"><img src="facebook.png" alt="Facebook" ></a>
+            <a href="#"><img src="twitter.png" alt="Twitter" ></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    {% endif %}
+</body>
+</html>

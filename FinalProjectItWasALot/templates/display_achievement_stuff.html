@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+
+            <h2>Game {{game}}</h2>
+            <h2>Platform: {{platform}}</h2>
+            <h2>{{difficulty}} achieved</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Completed</th>
+                        <th>Achievement Name</th>
+                        <th>Achievement Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for achievement in achievements %}
+                        <tr>
+                            <td>{{achievement.achievement_time}}</td>
+                            <td>{{achievement.achievement_name}}</td>
+                            <td>{{achievement.achievement_description}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Totals</h2>
+            <h3>Top Ten Achievements: </h3>
+            <ul>
+            {% for top in top_10 %}
+                <li>{{top.achievement_name}}</li>
+            {% endfor %}
+            </ul>
+            <h3>Total Amount of Achievements Above: {{total_amount}}</h3>
+            <h3>Platforms Displayed In Top 10: </h3>
+            <ul>
+            {% for platform in platforms_displayed %}
+                <li>{{platform}}</li>
+            {% endfor %}
+            </ul>
+            <h3>Most Listed Platform In Top 10: {{most_listed_platform}}</h3>
+    {% endif %}
+</body>
+</html>

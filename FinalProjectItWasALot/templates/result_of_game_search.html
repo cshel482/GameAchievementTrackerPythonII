@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Game Name</th>
+                    <th>Publisher</th>
+                    <th>Platform</th>
+                    <th>Exclusive</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for game in games %}
+                <tr>
+                    <td>{{ game.game_name }}</td>
+                    <td>{{ game.publisher }}</td>
+                    <td>{{ game.platform }}</td>
+                    {% if game.exclusive == True %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+</body>
+</html>
